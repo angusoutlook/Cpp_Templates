@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 
 //-------------------------------
 //Parmeterized Declarations
@@ -99,3 +101,76 @@ template <int I> double CupBoard<I>::total_weight = 0.0;
 //virtual member functions
 //-----------------------------
 
+template <typename T> class Dynamic
+{
+public:
+	virtual ~Dynamic();
+
+	virtual void idel();
+
+	//template<typename T2> virtual void copy(T2 const &); //error
+};
+
+
+//-----------------------------
+//Linkage
+//-----------------------------
+
+int C;
+class C {};
+//C C;
+
+int X;
+template<typename T> class X;
+
+struct S;
+//template<typename T> class S;
+
+
+//-----------------------------
+//Primary Templates
+//-----------------------------
+
+template<typename T> class Box; // OK： primary template87
+//template<typename T> class Box<T>; // ERROR
+template<typename T> void translate(T*); // OK： primary template
+//template<typename T> void translate<T>(T*); // ERROR
+
+
+template <typename Allocator> class myList
+{
+	typename Allocator* allocator;
+	friend typename Allocator;
+};
+
+template <typename T,
+	typename T::Allocator* Allocator> class myList1;
+
+
+
+template<int buf[5]> class Lexer; // buf实际被当作 int*
+template<int* buf> class Lexer; // OK：这是一个再声明（ redeclaration）
+
+template <template<typename X> class C> // OK
+void f(C<int>* p);
+
+
+//template <template<typename X> struct C> // ERROR：不能使用关键词 struct
+//void f(C<int>* p);
+//template <template<typename X> union C> // ERROR：不能使用关键词 union
+//void f(C<int>* p);
+
+class MyAllocator;
+
+template <template < typename, typename = MyAllocator> class Container > class Adaptation {
+	Container<int> storage;
+};
+
+template <typename T1, typename T2, typename T3, typename T4 = char, typename T5 = char> class Quintuple; // OK
+template <typename T1, typename T2, typename T3 = char,	typename T4, typename T5> class Quintuple; // OK： T4和 T5先前已有默认值
+template <typename T1 = char, typename T2, typename T3,	typename T4, typename T5> class Quintuple; // 错误： T1不能拥有默认值，因为 T2没有默认值
+
+
+template<typename T = void> class Value2;
+//template<typename T = int>  // ERROR：预设自变量被重复定义了
+//class Value2;
