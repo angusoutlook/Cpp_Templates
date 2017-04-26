@@ -27,13 +27,21 @@ void Traits() {
 	std::cout << "the average value of the integer values is " << accum(&num[0], &num[5]) << std::endl;
 
 	double dNum[] = { 1.1,2.1,3.1,4.1,5.1 };
-	std::cout << "the average value of the integer values is " << accum(&dNum[0], &dNum[5]) << std::endl;
+	std::cout << "the total value of the integer values is " << Accum<double>::accum(&dNum[0], &dNum[5]) << std::endl;
+
+	double dNum1[] = { 1.1,2.1,3.1,4.1,5.1 };
+	std::cout << "the mult value of the integer values is " << Accum<double,MultPolicy>::accum(&dNum1[0], &dNum1[5]) << std::endl;
 
 
 	char name[] = "templates";
 	int length = sizeof(name) - 1;
 
 	std::cout << "the average value of the characters in \"" << name << "\" is " << accum(&name[0], &name[length]) / length << std::endl;
+
+	char* namestring[] = { ":","angus","zhang","huaweiwei","zhanghuabing"};
+	length = sizeof(namestring)/sizeof(char*);
+
+	std::cout << "the cat value of the characters in \"" << name << "\" is " << Accum<char*,CatPolicy>::accum(&namestring[0], &namestring[length]) << std::endl;
 }
 
 
@@ -56,7 +64,7 @@ void BasicKnowledge()
 
 	max<double>(1.0, -3.0); // explicit template arguments
 	max(1.0, -3.0); // template arguments 被隐式推导为 double
-	max<int>(1.0, 3.0); // 明确指定<int> 以抑制推导，从而令自变量类型为 	int
+	max<long>(1.0, 3.0); // 明确指定<int> 以抑制推导，从而令自变量类型为 	int
 
 	::max(7, 42, 68); // 调用「接受三个自变量」的函数
 	::max(7.0, 42.0); // 调用 max<double>（经由自变量推导）
