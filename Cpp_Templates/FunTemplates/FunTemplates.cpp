@@ -42,6 +42,7 @@ void Traits() {
 	length = sizeof(namestring)/sizeof(char*);
 
 	std::cout << "the cat value of the characters in \"" << name << "\" is " << Accum<char*,CatPolicy>::accum(&namestring[0], &namestring[length]) << std::endl;
+<<<<<<< HEAD
 
 	std::stack<bool> s;
 	print_element_type(s);
@@ -80,6 +81,8 @@ void Traits() {
 	MyClass2 mc2;
 	foo(mc1, mc2);
 	foo_core<MyClass1, MyClass2>(mc1, mc2);
+=======
+>>>>>>> 395e24568f86b31b47cc73013bc0e65e132272bd
 }
 
 

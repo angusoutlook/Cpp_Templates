@@ -2,10 +2,13 @@
 
 #include <stddef.h>
 #include <iostream>
+<<<<<<< HEAD
 #include <list>
 #include <vector>
 #include <deque>
 #include <stack>
+=======
+>>>>>>> 395e24568f86b31b47cc73013bc0e65e132272bd
 
 
 
@@ -222,6 +225,7 @@ std::iterator_traits<std::string> iter;
 template <typename T> class TypeSize {
 public:
 	static size_t const value = sizeof(T);
+<<<<<<< HEAD
 };
 
 template <typename T> class ElementT;
@@ -538,3 +542,6 @@ public:
 };
 
 
+=======
+};
+>>>>>>> 395e24568f86b31b47cc73013bc0e65e132272bd
