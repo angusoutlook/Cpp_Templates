@@ -1,4 +1,4 @@
 ﻿  FunTemplates.cpp
-c:\users\angus\source\repos\cpp_templates\cpp_templates\funtemplates\funtemplates.cpp(89): warning C4244: “参数”: 从“double”转换到“const long”，可能丢失数据
+c:\users\angus\source\repos\cpp_templates\cpp_templates\funtemplates\funtemplates.cpp(105): warning C4244: “参数”: 从“double”转换到“const long”，可能丢失数据
   FunTemplates.vcxproj -> C:\Users\angus\Source\Repos\Cpp_Templates\Cpp_Templates\x64\Debug\FunTemplates.exe
   FunTemplates.vcxproj -> C:\Users\angus\Source\Repos\Cpp_Templates\Cpp_Templates\x64\Debug\FunTemplates.pdb (Partial PDB)
